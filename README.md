@@ -7,6 +7,25 @@ https://fuzzy-journey-v7y6oy5.pages.github.io/pern-tut/
 
 ---
 
+docker compose up
+
+
+---
+
+Postgres Shell
+
+psql -U postgres
+
+create database badges;
+
+\c badges
+
+create table badges_list(id SERIAL PRIMARY KEY, title VARCHAR(50), description Text);
+
+---
+
+Node.js
+
 In development mode, use this command to avoid having to restart the server whenever you make changes:
 npm run dev
 
