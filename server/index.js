@@ -49,4 +49,48 @@ app.get('/badges', async (req, res) => {
     } catch (err) {
       res.status(500).send('Internal error:'+ err); 
     }
-  });
+});
+
+app.delete('/badges/:id', async (req, res) => {
+  try {
+
+    // Extract id parameter from the request object
+    const { id } = req.params; 
+    const badge = await pool.query(
+      `delete from badges_list where id =$1`, [id]);
+    res.json(badge.rows[0]);
+  }catch (err) {
+    res.status(500).send('Internal error:'+ err); 
+  }
+});
+
+app.put('/badges/:id', async (req, res) => {
+  try {
+
+    // Extract id parameter from the request object
+      const { id } = req.params; 
+
+      // Extract the new title, and description submitted from the form.
+      const { title, description} = req.body; 
+    const badge = await pool.query(
+      `update badges_list set title=$2, description=$3 where id =$1`, [id, title, description]);
+    res.json(badge.rows[0]);
+  }catch (err) {
+  res.status(500).send('Internal error:'+ err); 
+  }
+});
+
+app.post('/badges', async (req, res) => {
+  try {
+    const { title, description } = req.body;  
+
+    const newBadge = await pool.query(
+      `INSERT INTO badges_list (title, description) VALUES($1, $2) RETURNING *`,
+      [title, description]
+    );
+    res.json(newBadge.rows[0]);
+
+  } catch (err) {
+  res.status(500).send('Internal error:'+ err); 
+  }
+});
