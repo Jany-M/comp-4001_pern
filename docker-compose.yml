@@ -9,7 +9,7 @@
                 - db-data:/var/lib/postgresql/data
             pgadmin:
               image: dpage/pgadmin4
-              restart: always
+              #restart: always
               environment:
                 PGADMIN_DEFAULT_EMAIL: admin@admin.com
                 PGADMIN_DEFAULT_PASSWORD: root
