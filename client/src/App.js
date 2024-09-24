@@ -1,11 +1,15 @@
-import React from 'react';
+import AddBadgeForm from './components/AddBadgeForm';
+
+import { Layout } from 'antd';
+const { Content } = Layout;
 
 function App() {
-return (
-    <div>
-    <h1>Hello, React!</h1>
-    </div>
-);
+  return (
+   
+    <Content style={{ padding: '0 150px', background: 'white' }}>
+      <AddBadgeForm />
+    </Content>
+ 
+  );
 }
-
 export default App;
