@@ -31,7 +31,7 @@ function AddBadgeForm() {
       layout="vertical"
       onFinish={onFinish}
     >
-      <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Badges</h1>
+      <h1 style={{ textAlign: 'center', marginTop: '2rem' }}>Badges (local dev)</h1>
       
       <Form.Item
         label="Badge Title"

@@ -1,4 +1,5 @@
 import AddBadgeForm from './components/AddBadgeForm';
+import ListBadges from './components/ListBadges';
 
 import { Layout } from 'antd';
 const { Content } = Layout;
@@ -8,6 +9,7 @@ function App() {
    
     <Content style={{ padding: '0 150px', background: 'white' }}>
       <AddBadgeForm />
+      <ListBadges />
     </Content>
  
   );
